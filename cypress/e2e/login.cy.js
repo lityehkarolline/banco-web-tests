@@ -10,9 +10,13 @@ describe('Login', () => {
     //cy.visit('http://localhost:4000')
 
     // Act ações realizadas no teste
-    cy.get('#username').click().type('julio.lima')
-    cy.get('#senha').click().type('123456')
-    cy.get('#login-section > .btn').click()
+    cy.fixture('credenciais').then(credenciais => {
+      cy.get('#username').click().type(credenciais.valida.usuario)
+      cy.get('#senha').click().type(credenciais.valida.senha)
+    })
+
+    //cy.get('#login-section > .btn').click()
+    cy.contains('button', 'Entrar').click()
 
     // Assert acerssões = checagem 
     cy.contains('h4', 'Realizar Transferência').should('be.visible')
@@ -24,8 +28,11 @@ describe('Login', () => {
     //cy.visit('http://localhost:4000')
 
     // Act ações realizadas no teste
-    cy.get('#username').click().type('julio.lima')
-    cy.get('#senha').click().type('654321')
+    cy.fixture('credenciais').then(credenciais => {
+      cy.get('#username').click().type(credenciais.invalida.usuario)
+      cy.get('#senha').click().type(credenciais.invalida.senha)
+    })
+    
     //cy.get('#login-section > .btn').click()
     cy.contains('button', 'Entrar').click()
 
