@@ -1,8 +1,8 @@
 describe('Login', () => {
   beforeEach(() => {
     // Arrange preparação para o teste
-    cy.visit('http://localhost:4000')
-
+    //cy.visit('http://localhost:4000')
+    cy.visit(Cypress.env('URL'))
   })
 
   it('Login com dados válidos deve permitir entrada no sistema', () => {
