@@ -19,7 +19,7 @@ describe('Login', () => {
 
   })
 
-  it.only('Login com dados inválidos deve apresentar mensagem de erro', () => {
+  it('Login com dados inválidos deve apresentar mensagem de erro', () => {
     // Arrange preparação para o teste
     //cy.visit('http://localhost:4000')
 
